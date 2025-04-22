@@ -1,0 +1,310 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebTechSolution.WebForm1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(90deg, #004466, #0077b6);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+.nav {
+    padding: 12px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav a {
+    color: seagreen;
+    margin: 0 18px;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: #ffffff;
+    color: #005b96;
+}
+
+/* Hero Section */
+.hero-banner {
+    margin: 30px auto;
+    background-image: url('BTL.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    max-width: 900px;
+    height: 300px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    padding-top: 50px;
+}
+
+.hero-banner h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.hero-banner p {
+    font-size: 18px;
+}
+
+/* Main Content */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Section Titles */
+h1, h2 {
+    color: #0077b6;
+    margin-bottom: 20px;
+}
+
+/* Form and Table Styles */
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+td {
+    padding: 12px;
+    vertical-align: top;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+.submitButton,
+input[type="submit"],
+asp\:button {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover,
+input[type="submit"]:hover {
+    background-color: #0096c7;
+}
+
+/* Services List */
+.services-list li {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    list-style: none;
+    transition: transform 0.2s ease;
+}
+
+.services-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.services-list li strong {
+    background-color: #0077b6;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 5px;
+}
+
+/* Services Table */
+.services-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.services-table th,
+.services-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.services-table th {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+.services-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.services-table tr:hover {
+    background-color: #eef7ff;
+}
+
+/* Footer */
+.footer {
+    background-color: #004466;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav a {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .content {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .hero-banner {
+        width: 95%;
+        height: auto;
+        padding: 40px 10px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+  .hero-banner h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+}
+
+
+    </style>
+<!-- Home Section -->
+  <div class="hero-banner"> 
+         <h1>Welcome to TechWeb Solutions</h1>
+    <p>We provide professional software development services for your business needs.</p>  
+        </div>
+
+    <!-- Services Section -->
+    <div class="content" id="services">
+       <h2>Our Services</h2>
+  <p>At TechWeb Solutions, we offer a wide range of professional services tailored to help your business thrive in the digital world:</p>
+
+  <table class="services-table">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Web Development</td>
+        <td>Custom websites and web apps built with modern technologies.</td>
+      </tr>
+      <tr>
+        <td>Mobile App Development</td>
+        <td>Native and hybrid apps for iOS and Android platforms.</td>
+      </tr>
+      <tr>
+        <td>UI/UX Design</td>
+        <td>Clean, user‑friendly interfaces focused on user experience.</td>
+      </tr>
+      <tr>
+        <td>Cloud Solutions</td>
+        <td>Scalable cloud architecture and integration services.</td>
+      </tr>
+      <tr>
+        <td>E‑commerce Development</td>
+        <td>Powerful online stores with secure payment integration.</td>
+      </tr>
+      <tr>
+        <td>SEO &amp; Digital Marketing</td>
+        <td>Strategies to boost your online presence and drive traffic.</td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+
+    <!-- Contact Section -->
+    <div class="content" id="contact">
+       <h2>Contact Us</h2>
+    <asp:Label ID="lblMsg" runat="server" ForeColor="Green" />
+    <table>
+        <tr><td>Name:</td><td><asp:TextBox ID="txtName" runat="server" /></td></tr>
+        <tr><td>Email:</td><td><asp:TextBox ID="txtEmail" runat="server" /></td></tr>
+        <tr><td>Subject:</td><td><asp:TextBox ID="txtSubject" runat="server" /></td></tr>
+        <tr><td>Message:</td><td><asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="4" Columns="30" /></td></tr>
+        <tr><td></td><td><asp:Button ID="btnSubmit" runat="server" Text="Send" OnClick="btnSubmit_Click" /></td></tr>
+    </table>
+        </div>
+
+</asp:Content> 
